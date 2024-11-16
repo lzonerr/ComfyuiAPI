@@ -641,9 +641,17 @@ class ComfyuiApi:
                             if data['node'] is None:
                                 break  # Execution is done
                     if message['type'] == 'execution_error':
+                        out_image_name = {}
                         data = message['data']
                         comfyui_loggerr.error(f'workflow execution_error exception_type {data['exception_type']}')
                         self.response_service(status=2, remarks=f'workflow execution_error exception_type {data['exception_type']}')
+                        break
+
+                    if message['type'] == 'execution_interrupted':
+                        out_image_name = {}
+                        data = message['data']
+                        comfyui_loggerr.error(f'workflow execution_interrupted node_type {data['node_type']}')
+                        self.response_service(status=2, remarks=f'workflow execution_interrupted node_type {data['node_type']}')
                         break
 
                     # 根据上传类型处理 生成的图片
