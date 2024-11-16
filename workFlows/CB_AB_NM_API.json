@@ -1,0 +1,819 @@
+{
+  "6": {
+    "inputs": {
+      "mask": [
+        "318",
+        1
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "遮罩反转"
+    }
+  },
+  "8": {
+    "inputs": {
+      "brushnet": "BrushNet/brushnet_random_mask_fp16.safetensors",
+      "dtype": "float16"
+    },
+    "class_type": "BrushNetLoader",
+    "_meta": {
+      "title": "BrushNet加载器"
+    }
+  },
+  "9": {
+    "inputs": {
+      "scale": 1,
+      "start_at": 0,
+      "end_at": 10000,
+      "model": [
+        "96",
+        0
+      ],
+      "vae": [
+        "304",
+        0
+      ],
+      "image": [
+        "279",
+        0
+      ],
+      "mask": [
+        "240",
+        0
+      ],
+      "brushnet": [
+        "8",
+        0
+      ],
+      "positive": [
+        "86",
+        0
+      ],
+      "negative": [
+        "86",
+        1
+      ]
+    },
+    "class_type": "BrushNet",
+    "_meta": {
+      "title": "BrushNet"
+    }
+  },
+  "12": {
+    "inputs": {
+      "seed": [
+        "102",
+        0
+      ],
+      "steps": 30,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "exponential",
+      "denoise": 1,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "9",
+        0
+      ],
+      "positive": [
+        "9",
+        1
+      ],
+      "negative": [
+        "9",
+        2
+      ],
+      "latent_image": [
+        "176",
+        0
+      ],
+      "optional_vae": [
+        "304",
+        0
+      ],
+      "script": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "K采样器(效率)"
+    }
+  },
+  "14": {
+    "inputs": {
+      "rng_source": "gpu",
+      "cfg_denoiser": false,
+      "add_seed_noise": true,
+      "seed": 86057621153106,
+      "weight": 0.015
+    },
+    "class_type": "Noise Control Script",
+    "_meta": {
+      "title": "控制噪波"
+    }
+  },
+  "77": {
+    "inputs": {
+      "text": [
+        "411",
+        0
+      ],
+      "clip": [
+        "80",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "78": {
+    "inputs": {
+      "text": "(Freckles: 0.8), sexy, cinematic angle, fully naked, black eyes, CGI, spray painting, plastic, watermark, (worst quality, low quality, illustration, 3D, 2D, painting, cartoon, sketch), mutated hands and fingers, deformed hands, fused fingers, missing fingers, excessive fingers, bad hands, mutated hands, poorly drawn hands, pubic hair, teeth",
+      "clip": [
+        "80",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "80": {
+    "inputs": {
+      "ckpt_name": "1.5/htPhotorealismV417_v417SD15.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器(简易)"
+    }
+  },
+  "86": {
+    "inputs": {
+      "positive": [
+        "388",
+        0
+      ],
+      "negative": [
+        "388",
+        1
+      ],
+      "vae": [
+        "304",
+        0
+      ],
+      "pixels": [
+        "279",
+        0
+      ],
+      "mask": [
+        "240",
+        0
+      ]
+    },
+    "class_type": "INPAINT_VAEEncodeInpaintConditioning",
+    "_meta": {
+      "title": "VAE编码局部重绘条件"
+    }
+  },
+  "95": {
+    "inputs": {
+      "preset": "PLUS (high strength)",
+      "model": [
+        "80",
+        0
+      ]
+    },
+    "class_type": "IPAdapterUnifiedLoader",
+    "_meta": {
+      "title": "IPAdapter加载器"
+    }
+  },
+  "96": {
+    "inputs": {
+      "weight": 0.55,
+      "start_at": 0,
+      "end_at": 1,
+      "weight_type": "standard",
+      "model": [
+        "95",
+        0
+      ],
+      "ipadapter": [
+        "95",
+        1
+      ],
+      "image": [
+        "413",
+        0
+      ]
+    },
+    "class_type": "IPAdapter",
+    "_meta": {
+      "title": "应用IPAdapter"
+    }
+  },
+  "102": {
+    "inputs": {
+      "seed": 134966317393916
+    },
+    "class_type": "easy seed",
+    "_meta": {
+      "title": "随机种"
+    }
+  },
+  "176": {
+    "inputs": {
+      "batch_size": 4,
+      "latent": [
+        "9",
+        3
+      ]
+    },
+    "class_type": "CR Latent Batch Size",
+    "_meta": {
+      "title": "Latent批次大小"
+    }
+  },
+  "178": {
+    "inputs": {
+      "samples": [
+        "12",
+        3
+      ],
+      "vae": [
+        "12",
+        4
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "205": {
+    "inputs": {
+      "lama_model": "lama",
+      "device": "cuda",
+      "invert_mask": false,
+      "mask_grow": 10,
+      "mask_blur": 8,
+      "image": [
+        "271",
+        0
+      ],
+      "mask": [
+        "321",
+        1
+      ]
+    },
+    "class_type": "LayerUtility: LaMa",
+    "_meta": {
+      "title": "LaMa"
+    }
+  },
+  "240": {
+    "inputs": {
+      "any_01": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)",
+    "_meta": {
+      "title": "任意切换"
+    }
+  },
+  "258": {
+    "inputs": {
+      "image": "#258.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "259": {
+    "inputs": {
+      "width": [
+        "260",
+        0
+      ],
+      "height": [
+        "260",
+        0
+      ],
+      "interpolation": "lanczos",
+      "method": "keep proportion",
+      "condition": "always",
+      "multiple_of": 32,
+      "image": [
+        "258",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "图像缩放"
+    }
+  },
+  "260": {
+    "inputs": {
+      "value": 768
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "整数"
+    }
+  },
+  "267": {
+    "inputs": {
+      "input": [
+        "259",
+        2
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "显示整数"
+    }
+  },
+  "268": {
+    "inputs": {
+      "input": [
+        "259",
+        1
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "显示整数"
+    }
+  },
+  "269": {
+    "inputs": {
+      "image": "#269.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "271": {
+    "inputs": {
+      "width": [
+        "272",
+        0
+      ],
+      "height": [
+        "272",
+        0
+      ],
+      "interpolation": "lanczos",
+      "method": "keep proportion",
+      "condition": "always",
+      "multiple_of": 32,
+      "image": [
+        "269",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "图像缩放"
+    }
+  },
+  "272": {
+    "inputs": {
+      "value": 768
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "整数"
+    }
+  },
+  "273": {
+    "inputs": {
+      "input": [
+        "271",
+        1
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "显示整数"
+    }
+  },
+  "274": {
+    "inputs": {
+      "input": [
+        "271",
+        2
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "显示整数"
+    }
+  },
+  "279": {
+    "inputs": {
+      "image": [
+        "259",
+        0
+      ]
+    },
+    "class_type": "ImageRGBA2RGB",
+    "_meta": {
+      "title": "图像RGBA到RGB"
+    }
+  },
+  "304": {
+    "inputs": {
+      "vae_name": "vae-ft-mse-840000-ema-pruned.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAE加载器"
+    }
+  },
+  "310": {
+    "inputs": {
+      "text": [
+        "411",
+        0
+      ],
+      "text2": ", depicting a minimalist interior scene featuring a large, glossy, smooth, gray floor slab with a visible water stain in the center. The floor slab occupies the lower portion of the image, taking up most of the frame. The upper half of the image showcases a wall covered in a grid pattern made of yellow vertical and horizontal lines, intersecting at regular intervals. The grid is composed of square tiles, each with a white background, creating a checkerboard effect. \n\nIn the upper left corner, a small, rectangular, blue sign with white text is visible, partially obscured by the grid. The sign appears to be a children's book cover, featuring colorful, playful illustrations. To the right of the blue sign, a similar rectangular, colorful book cover is partially visible, with a white background and vibrant illustrations. The background wall is white, providing a stark contrast to the grid and floor slab. The lighting is bright and even, casting no shadows, suggesting artificial lighting. The overall aesthetic is modern and minimalist, emphasizing clean lines and geometric shapes. The texture of the floor slab appears smooth and reflective, while the grid and signs have a glossy, plastic-like texture."
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "展示文本"
+    }
+  },
+  "318": {
+    "inputs": {
+      "load_local_model": false,
+      "background_color_name": "transparency",
+      "device": "auto",
+      "image": [
+        "259",
+        0
+      ]
+    },
+    "class_type": "BiRefNet_Hugo",
+    "_meta": {
+      "title": "🔥BiRefNet"
+    }
+  },
+  "321": {
+    "inputs": {
+      "load_local_model": false,
+      "background_color_name": "transparency",
+      "device": "auto",
+      "image": [
+        "271",
+        0
+      ]
+    },
+    "class_type": "BiRefNet_Hugo",
+    "_meta": {
+      "title": "🔥BiRefNet"
+    }
+  },
+  "355": {
+    "inputs": {
+      "upscale_by": 2,
+      "seed": 1000122408342527,
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.25,
+      "mode_type": "Linear",
+      "tile_width": 1024,
+      "tile_height": 1024,
+      "mask_blur": 16,
+      "tile_padding": 32,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 0.25,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 16,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "image": [
+        "415",
+        0
+      ],
+      "model": [
+        "80",
+        0
+      ],
+      "positive": [
+        "77",
+        0
+      ],
+      "negative": [
+        "78",
+        0
+      ],
+      "vae": [
+        "80",
+        2
+      ],
+      "upscale_model": [
+        "356",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+      "title": "SD放大"
+    }
+  },
+  "356": {
+    "inputs": {
+      "model_name": "4x_NMKD-Siax_200k.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "放大模型加载器"
+    }
+  },
+  "366": {
+    "inputs": {
+      "width": [
+        "367",
+        0
+      ],
+      "height": [
+        "367",
+        0
+      ],
+      "interpolation": "lanczos",
+      "method": "keep proportion",
+      "condition": "always",
+      "multiple_of": 32,
+      "image": [
+        "258",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "图像缩放"
+    }
+  },
+  "367": {
+    "inputs": {
+      "value": 2048
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "整数"
+    }
+  },
+  "368": {
+    "inputs": {
+      "input": [
+        "366",
+        2
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "显示整数"
+    }
+  },
+  "369": {
+    "inputs": {
+      "input": [
+        "366",
+        1
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "显示整数"
+    }
+  },
+  "370": {
+    "inputs": {
+      "image": [
+        "406",
+        0
+      ]
+    },
+    "class_type": "ImageRGBA2RGB",
+    "_meta": {
+      "title": "图像RGBA到RGB"
+    }
+  },
+  "375": {
+    "inputs": {
+      "kernel": 1,
+      "sigma": 1,
+      "inpaint": [
+        "355",
+        0
+      ],
+      "original": [
+        "370",
+        0
+      ],
+      "mask": [
+        "407",
+        0
+      ]
+    },
+    "class_type": "BlendInpaint",
+    "_meta": {
+      "title": "混合局部重绘"
+    }
+  },
+  "388": {
+    "inputs": {
+      "strength": 0.5,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "77",
+        0
+      ],
+      "negative": [
+        "78",
+        0
+      ],
+      "control_net": [
+        "390",
+        0
+      ],
+      "image": [
+        "391",
+        0
+      ],
+      "vae": [
+        "304",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "ControlNet应用（旧版高级）"
+    }
+  },
+  "390": {
+    "inputs": {
+      "control_net_name": "1.5/control_v11p_sd15_canny.pth"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "ControlNet加载器"
+    }
+  },
+  "391": {
+    "inputs": {
+      "preprocessor": "CannyEdgePreprocessor",
+      "resolution": 512,
+      "image": [
+        "404",
+        0
+      ]
+    },
+    "class_type": "AIO_Preprocessor",
+    "_meta": {
+      "title": "Aux集成预处理器"
+    }
+  },
+  "404": {
+    "inputs": {
+      "load_local_model": false,
+      "background_color_name": "white",
+      "device": "auto",
+      "image": [
+        "259",
+        0
+      ]
+    },
+    "class_type": "BiRefNet_Hugo",
+    "_meta": {
+      "title": "🔥BiRefNet"
+    }
+  },
+  "406": {
+    "inputs": {
+      "load_local_model": false,
+      "background_color_name": "white",
+      "device": "auto",
+      "image": [
+        "366",
+        0
+      ]
+    },
+    "class_type": "BiRefNet_Hugo",
+    "_meta": {
+      "title": "🔥BiRefNet"
+    }
+  },
+  "407": {
+    "inputs": {
+      "invert_mask": true,
+      "grow": 5,
+      "blur": 2,
+      "mask": [
+        "406",
+        1
+      ]
+    },
+    "class_type": "LayerMask: MaskGrow",
+    "_meta": {
+      "title": "遮罩扩张"
+    }
+  },
+  "410": {
+    "inputs": {
+      "model": "unsloth/Meta-Llama-3.1-8B-bnb-4bit"
+    },
+    "class_type": "Joy_caption_load",
+    "_meta": {
+      "title": "加载JoyCaption"
+    }
+  },
+  "411": {
+    "inputs": {
+      "prompt": "A descriptive caption for this image",
+      "max_new_tokens": 300,
+      "temperature": 0.5,
+      "cache": false,
+      "joy_pipeline": [
+        "410",
+        0
+      ],
+      "image": [
+        "205",
+        0
+      ]
+    },
+    "class_type": "Joy_caption",
+    "_meta": {
+      "title": "JoyCaption"
+    }
+  },
+  "413": {
+    "inputs": {
+      "any_02": [
+        "205",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)",
+    "_meta": {
+      "title": "任意切换"
+    }
+  },
+  "414": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "375",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "415": {
+    "inputs": {
+      "mode": "Pass through",
+      "count": 1,
+      "images": [
+        "178",
+        0
+      ],
+      "latents": [
+        "12",
+        3
+      ]
+    },
+    "class_type": "Preview Chooser",
+    "_meta": {
+      "title": "图像选择器"
+    }
+  }
+}

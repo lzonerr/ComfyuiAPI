@@ -1,0 +1,10 @@
+python-dotenv~=1.0.1
+requests~=2.32.3
+validators~=0.18.2
+flask~=3.0.3
+werkzeug~=3.0.6
+aiohttp~=3.10.5
+websocket-client~=1.8.0
+pillow~=11.0.0
+minio~=7.1.17
+psd-tools~=1.10.2
