@@ -448,3 +448,5 @@ def post_info():
     except Exception as e:
         comfyui_loggerr.error(f"Unexpected error in gen_image: {str(e)}")
         return error_response(f"An unexpected error occurred: {e}")
+
+

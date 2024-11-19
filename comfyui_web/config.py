@@ -29,6 +29,12 @@ class Config:
     GEN_EXPIC = '5'
 
 
+    # autudl info
+
+
+
+
+
     # img path
     IMAGES_TMP = "tmp"
 
