@@ -725,6 +725,7 @@ class ComfyuiApi:
         comfyui_loggerr.debug(f"out_image_name-> {out_image_name}")
 
         if not out_image_name:
+            self.response_service(status=2, remarks='Pictures are not generated normally')
             return
 
 
